@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Watch Event Promo</h2>
+<video id="promoVideo" controls oncanplay="videoReadyMsg()">
+  <source src="hp.mp4" type="video/mp4">
+  Your browser doesn't support video.
+</video>
+<p id="videoMsg"></p>
+
+<script>
+function videoReadyMsg() {
+  document.getElementById("videoMsg").innerText = "Video ready to play!";
+}
+
+window.onbeforeunload = function() {
+  return "Are you sure you want to leave? Unsaved changes may be lost.";
+}
+</script>
+
+    
+</body>
+</html>
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 5 Exercises</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    .card-img-top-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container my-5">
+  <!-- Grid Exercise 3.1 and 3.2 -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col bg-primary text-white p-3">Column 1</div>
+    <div class="col bg-secondary text-white p-3">Column 2</div>
+    <div class="col bg-success text-white p-3">Column 3</div>
+  </div>
+
+  <!-- Column Layout 4.1 -->
+  <div class="row my-5">
+    <div class="col-md-3 bg-light">Sidebar</div>
+    <div class="col-md-9">Main Content</div>
+  </div>
+
+  <!-- Flex & Reorder 5.1 & 5.2 -->
+  <div class="d-flex justify-content-center align-items-center bg-warning my-3" style="height: 100px;">
+    Centered Content
+  </div>
+  <div class="row text-center">
+    <div class="col-md-6 order-md-2 bg-info">Second on desktop</div>
+    <div class="col-md-6 order-md-1 bg-light">First on desktop</div>
+  </div>
+
+  <!-- Navbar 6.1 -->
+  <nav class="d-flex flex-column flex-md-row justify-content-between align-items-center bg-dark text-white p-3 my-4">
+    <span>Logo</span>
+    <span>Links</span>
+    <span>Login</span>
+  </nav>
+
+  <!-- Typography 7.1 & 7.2 -->
+  <div class="my-3">
+    <h1 class="display-1">Display 1</h1>
+    <p class="lead">Lead paragraph</p>
+    <p class="text-muted text-uppercase fw-bold">Muted UPPERCASE Bold</p>
+  </div>
+
+  <!-- Forms 8.1 & 8.2 -->
+  <form class="mb-4">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox">
+      <label class="form-check-label">Remember me</label>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">@</span>
+      <input type="text" class="form-control" placeholder="Username">
+    </div>
+  </form>
+  <form class="form-floating">
+    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput">Email address</label>
+  </form>
+
+  <!-- Buttons 9.1 & 9.2 -->
+  <div class="my-4">
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-outline-danger">Outline Danger</button>
+    <div class="btn-group" role="group">
+      <input type="checkbox" class="btn-check" id="btncheck1">
+      <label class="btn btn-outline-primary" for="btncheck1">Toggle</label>
+    </div>
+  </div>
+
+  <!-- Navbars & Tabs 10.1 & 10.2 -->
+  <ul class="nav nav-tabs my-4">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Profile</a>
+    </li>
+  </ul>
+
+  <!-- Cards 11.1 -->
+  <div class="card" style="width: 18rem;">
+    <img src="img1.jpeg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some example text.</p>
+    </div>
+  </div>
+
+  <!-- Spacing 12.1 & 12.2 -->
+  <div class="my-5 p-5 bg-light">
+    <h2 class="mb-4">Pricing Section</h2>
+    <p class="m-3 p-2">Basic Plan</p>
+  </div>
+
+  <!-- Colors 13.1 & 13.2 -->
+  <div class="bg-gradient bg-dark text-white p-4 mb-4">
+    Gradient dark background with white text
+  </div>
+
+  <!-- Visibility 14.1 -->
+  <div class="d-none d-md-block">Visible on medium and above</div>
+  <div class="d-lg-flex">Visible flex on large and above</div>
+
+  <!-- Borders & Shadows 15.1 & 15.2 -->
+  <img src="img2.jpeg" class="border border-primary border-3 rounded-circle mb-3">
+  <div class="card shadow-lg rounded-pill p-3">
+    Shadowed Pill Card
+  </div>
+
+  <!-- Positioning 16.1 & 16.2 -->
+  <div class="position-relative my-5">
+    <img src="img3.jpeg" class="img-fluid">
+    <span class="badge bg-danger position-absolute top-0 end-0">New</span>
+  </div>
+  <footer class="bg-dark text-white text-center position-fixed bottom-0 w-100 py-2">
+    Fixed Footer
+  </footer>
+
+  <!-- Bootstrap Icons 17.1 & 17.2 -->
+  <div class="my-4">
+    <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+    <button class="btn btn-outline-secondary"><i class="bi bi-gear"></i></button>
+  </div>
+
+  <!-- JS Plugins 18.1 & 18.2 -->
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch Modal</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">Modal body text.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion my-4" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+          Accordion Item
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body">
+          Content inside accordion.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

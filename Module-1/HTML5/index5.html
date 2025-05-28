@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Register for an Event</h2>
+<form onsubmit="displayConfirmation(event)">
+  <label>Name: <input type="text" name="name" placeholder="Your Name" required autofocus></label><br><br>
+  <label>Email: <input type="email" name="email" placeholder="example@mail.com" required></label><br><br>
+  <label>Date: <input type="date" name="date" required></label><br><br>
+  <label>Event Type:
+    <select id="eventType" required>
+      <option value="">--Choose--</option>
+      <option value="music">Music</option>
+      <option value="art">Art</option>
+    </select>
+  </label><br><br>
+  <label>Message: <textarea placeholder="Any notes..."></textarea></label><br><br>
+  <input type="submit" value="Register">
+  <output id="confirmationMessage"></output>
+</form>
+
+<script>
+function displayConfirmation(event) {
+  event.preventDefault();
+  document.getElementById("confirmationMessage").innerText = "✔️ Registration Successful!";
+}
+</script>
+
+<style>
+  form {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background: #f9f9f9;
+    width: 300px;
+  }
+</style>
+
+    
+</body>
+</html>
+
+
+
+

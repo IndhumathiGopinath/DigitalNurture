@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <h1 id="mainHeader">Community Portal</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#registration">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="help.html" target="_blank">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Banner Section -->
+        <section id="home">
+            <div id="welcomeBanner" class="banner">
+                <h2>Welcome to Your Local Community Portal</h2>
+                <p>Discover amazing events happening in your neighborhood!</p>
+                <span class="special-offer" style="color: red; font-weight: bold;">
+                    Special: 20% off all workshop registrations this month!
+                </span>
+                <br>
+                <button id="findNearbyBtn" class="cta-button">Find Nearby Events</button>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section id="video-section">
+            <h3>Community Event Highlights</h3>
+            <video id="promoVideo" controls width="100%" style="max-width: 600px;">
+                <source src="hp.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="videoStatus"></div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section id="gallery">
+            <h3>Past Community Events</h3>
+            <table class="event-gallery">
+                <caption>Recent Community Activities</caption>
+                <tr>
+                    <td>
+                        <img src="event1.jpeg" alt="Summer Festival" title="Summer Festival 2024" class="gallery-image">
+                        <p>Summer Festival</p>
+                    </td>
+                    <td>
+                        <img src="event2.jpeg" alt="Art Workshop" title="Community Art Workshop" class="gallery-image">
+                        <p>Art Workshop</p>
+                    </td>
+                    <td>
+                        <img src="event3.jpeg" alt="Food Drive" title="Annual Food Drive" class="gallery-image">
+                        <p>Food Drive</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="event4.jpeg" alt="Music Concert" title="Local Band Concert" class="gallery-image">
+                        <p>Music Concert</p>
+                    </td>
+                    <td>
+                        <img src="event5.jpeg" alt="Book Club" title="Monthly Book Club Meeting" class="gallery-image">
+                        <p>Book Club</p>
+                    </td>
+                    <td>
+                        <img src="event6.jpeg" alt="Sports Day" title="Community Sports Day" class="gallery-image">
+                        <p>Sports Day</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events">
+            <h3>Upcoming Events</h3>
+            <div class="filter-controls">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="music">Music</option>
+                    <option value="sports">Sports</option>
+                    <option value="community">Community</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Search events..." />
+            </div>
+            <div id="eventsContainer" class="events-grid">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+            <div id="loadingSpinner" class="loading" style="display: none;">Loading events...</div>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="registration">
+            <h3>Event Registration</h3>
+            <form id="registrationForm" class="registration-form">
+                <div class="form-group">
+                    <label for="userName">Full Name:</label>
+                    <input type="text" id="userName" name="userName" placeholder="Enter your full name" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userEmail">Email:</label>
+                    <input type="email" id="userEmail" name="userEmail" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userPhone">Phone Number:</label>
+                    <input type="tel" id="userPhone" name="userPhone" placeholder="(555) 123-4567" onblur="validatePhone()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDate">Preferred Date:</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventType">Event Type:</label>
+                    <select id="eventType" name="eventType" onchange="showEventFee()" required>
+                        <option value="">Select an event type</option>
+                        <option value="workshop" data-fee="25">Workshop ($25)</option>
+                        <option value="music" data-fee="15">Music Event ($15)</option>
+                        <option value="sports" data-fee="10">Sports Activity ($10)</option>
+                        <option value="community" data-fee="0">Community Meeting (Free)</option>
+                    </select>
+                    <div id="eventFee" class="fee-display"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userMessage">Additional Message:</label>
+                    <textarea id="userMessage" name="userMessage" placeholder="Any special requirements or questions?" onkeyup="countCharacters()"></textarea>
+                    <div id="charCount" class="char-counter">0 characters</div>
+                </div>
+                
+                <button type="submit" onclick="showConfirmation(event)" class="submit-btn">Register for Event</button>
+                <!-- <output id="confirmationOutput" class="confirmation-message"></output> -->
+            </form>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback">
+            <h3>Event Feedback</h3>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="feedbackText">Your Feedback:</label>
+                    <textarea id="feedbackText" placeholder="Share your experience..." onkeydown="handleKeyEvents(event)" onkeyup="countCharacters()"></textarea>
+                    <div id="feedbackCharCount" class="char-counter">0 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rating">Event Rating:</label>
+                    <select id="rating" onchange="updateRating()">
+                        <option value="">Select rating</option>
+                        <option value="5">Excellent (5 stars)</option>
+                        <option value="4">Good (4 stars)</option>
+                        <option value="3">Average (3 stars)</option>
+                        <option value="2">Poor (2 stars)</option>
+                        <option value="1">Very Poor (1 star)</option>
+                    </select>
+                    <div id="ratingDisplay"></div>
+                </div>
+                
+                <button type="button" onclick="submitFeedback()" ondblclick="clearFeedback()">Submit Feedback</button>
+            </form>
+        </section>
+
+        <!-- Preferences Section -->
+        <section id="preferences">
+            <h3>User Preferences</h3>
+            <div class="preferences-controls">
+                <button onclick="savePreferences()">Save Preferences</button>
+                <button onclick="loadPreferences()">Load Preferences</button>
+                <button onclick="clearPreferences()">Clear Preferences</button>
+            </div>
+            <div id="preferencesStatus"></div>
+        </section>
+
+        <!-- Geolocation Section -->
+        <section id="location">
+            <h3>Find Nearby Events</h3>
+            <button onclick="findNearbyEvents()">Get My Location</button>
+            <div id="locationResult"></div>
+            <div id="nearbyEvents"></div>
+        </section>
+
+        <!-- Multi-column News Section -->
+        <section id="bulletin">
+  <h2>Community Bulletin</h2>
+  <ul>
+    <li><strong>June 5:</strong> Community gardening workshop this Saturday at 9 AM in Rose Park.</li>
+    <li><strong>June 10:</strong> Local Blood Donation Drive at the Town Hall. Volunteers and donors welcome!</li>
+    <li><strong>June 15:</strong> Pet Adoption Day hosted by the Animal Shelter. Come find your new best friend.</li>
+    <li><strong>Ongoing:</strong> Weekly book club meets every Thursday at the Community Library – all genres welcome.</li>
+    <li><strong>June 20:</strong> Public Art Mural unveiling at Main Street – support local artists!</li>
+    <li><strong>June 22:</strong> “Clean Up the Neighborhood” walk – gloves, bags, and snacks provided.</li>
+    <li><strong>Anytime:</strong> Got an event or announcement? <a href="#contactUs">Contact us</a> to post it here.</li>
+  </ul>
+</section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>Contact Information</h3>
+            <p>City Council Office</p>
+            <p>123 Main Street, Your City</p>
+            <p>Phone: (555) 123-4567</p>
+            <p>Email: info@yourcity.gov</p>
+        </div>
+    </footer>
+
+    <script src="../JS/main.js"></script>
+    <script>
+        // Page load event
+        window.addEventListener('load', function() {
+            console.log('Welcome to the Community Portal');
+            alert('Welcome! The Community Portal has loaded successfully.');
+        });
+
+        // Before unload warning
+        window.addEventListener('beforeunload', function(e) {
+            const form = document.getElementById('registrationForm');
+            if (form && form.querySelector('input[type="text"]').value) {
+                e.preventDefault();
+                e.returnValue = '';
+                return 'You have unsaved changes. Are you sure you want to leave?';
+            }
+        });
+
+        // Video events
+        const video = document.getElementById('promoVideo');
+        if (video) {
+            video.addEventListener('canplay', function() {
+                document.getElementById('videoStatus').textContent = 'Video ready to play!';
+            });
+        }
+    </script>
+</body>
+</html>

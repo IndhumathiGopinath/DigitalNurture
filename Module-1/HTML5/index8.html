@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Choose Your Preferred Event Type</h2>
+<select id="preferredEvent" onchange="savePreference()">
+  <option value="">--Select--</option>
+  <option value="music">Music</option>
+  <option value="art">Art</option>
+</select>
+<button onclick="clearPrefs()">Clear Preferences</button>
+
+<script>
+function savePreference() {
+  let type = document.getElementById("preferredEvent").value;
+  localStorage.setItem("preferredEvent", type);
+}
+
+window.onload = function() {
+  let saved = localStorage.getItem("preferredEvent");
+  if (saved) document.getElementById("preferredEvent").value = saved;
+}
+
+function clearPrefs() {
+  localStorage.clear();
+  sessionStorage.clear();
+  alert("Preferences cleared.");
+}
+</script>
+
+    
+</body>
+</html>
+
